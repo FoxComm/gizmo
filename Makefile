@@ -9,4 +9,8 @@ reset:
 	createuser -s gizmo
 	createdb gizmo
 
-.PHONY: migrate reset
+test: reset migrate
+	go run examples/simple.go
+	go run examples/sku.go
+
+.PHONY: migrate reset test
