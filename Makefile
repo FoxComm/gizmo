@@ -25,4 +25,4 @@ test: info-test glide reset migrate
 	go run examples/simple.go
 	go run examples/sku.go
 
-.PHONY: migrate reset test
+.PHONY: glide info-test migrate reset test
