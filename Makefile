@@ -6,6 +6,9 @@ NO_COLOR = \033[0m
 baseheader = @echo "---$(1)$(RED)$(2)$(NO_COLOR)"
 header = $(call baseheader, $(1), gizmo)
 
+info-test:
+	$(call header, Testing)
+
 glide:
 	glide install
 
@@ -18,11 +21,7 @@ reset:
 	createuser -s gizmo
 	createdb gizmo
 
-test: 
-	$(call header, Testing)
-	make glide
-	make reset
-	make migrate
+test: info-test glide reset migrate
 	go run examples/simple.go
 	go run examples/sku.go
 
